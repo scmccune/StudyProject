@@ -1,7 +1,8 @@
-import CoreJava.AdvancedObjects;
-import CoreJava.DataTypes;
-import CoreJava.Objects;
-import CoreJava.Functions;
+import AdvancedJava.AdvancedObjects;
+import AdvancedJava.Exceptions;
+import AdvancedJava.Resources;
+import AdvancedJava.Threads;
+import CoreJava.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -13,7 +14,10 @@ public class Main {
         Functions.runOperators();
         DataTypes.runDataTypes();
         Objects o = new Objects();
+        Exceptions ex = new Exceptions();
         AdvancedObjects adO = new AdvancedObjects();
+        Resources re = new Resources();
+        Threads t = new Threads();
 
     }
 
