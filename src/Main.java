@@ -1,3 +1,4 @@
+import CoreJava.AdvancedObjects;
 import CoreJava.DataTypes;
 import CoreJava.Objects;
 import CoreJava.Functions;
@@ -12,6 +13,7 @@ public class Main {
         Functions.runOperators();
         DataTypes.runDataTypes();
         Objects o = new Objects();
+        AdvancedObjects adO = new AdvancedObjects();
 
     }
 
