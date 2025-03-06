@@ -1,7 +1,4 @@
-import AdvancedJava.AdvancedObjects;
-import AdvancedJava.Exceptions;
-import AdvancedJava.Resources;
-import AdvancedJava.Threads;
+import AdvancedJava.*;
 import CoreJava.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -18,7 +15,8 @@ public class Main {
         AdvancedObjects adO = new AdvancedObjects();
         Resources re = new Resources();
         Threads t = new Threads();
-
+        Collections collections = new Collections();
+        Streams streams = new Streams();
     }
 
 
