@@ -2,16 +2,42 @@ package AdvancedJava;
 
 import CoreJava.Util;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Streams {
     List<Integer> nums = Arrays.asList(4,7,6,2,3,9);
+
+    class BeerTypes{
+        String beerName;
+        double abv;
+
+        public String getBeerName() {
+            return beerName;
+        }
+
+        public void setBeerName(String beerName) {
+            this.beerName = beerName;
+        }
+
+        public BeerTypes(String beerName) {
+            this.beerName = beerName;
+        }
+
+        public BeerTypes() {
+        }
+
+        @Override
+        public String toString() {
+            return "BeerTypes{" +
+                    "beerName='" + beerName + '\'' +
+                    ", abv=" + abv +
+                    '}';
+        }
+    }
+
     public Streams() {
         basicStreams();
         predicate();
@@ -19,11 +45,55 @@ public class Streams {
         reduce();
         optional();
         methodReference();
+        constructorReference();
+
+    }
+
+    private void constructorReference() {
+        Util.printHeader("Constructor Reference");
+        System.out.println("You can create objects through stream with reference like method reference");
+        System.out.println("Class Beer is as youd expect. String Beer, double abv, standard constructors and getters/setters");
+        List<BeerTypes> carryOut = new ArrayList<>();
+        List<String> beerNames = Arrays.asList("Guinness", "Budweiser", "Heineken", "Budwar", "Carlsberg");
+        carryOut = beerNames.stream().map(BeerTypes::new).toList();
+        carryOut.stream().forEach(System.out::println);
+
     }
 
     private void methodReference() {
         Util.printHeader("Method Reference");
+        System.out.println("Instead of calling a method we can reference it in a stream");
+        System.out.println("For every variable we want to X");
+        System.out.println("""
+                List<String> beers = Arrays.asList("Guinness","Budweiser","Carlsberg");
+                        beers.stream()
+                                .map(String::toUpperCase)
+                                .forEach(System.out::println);
+                       \s""");
+        List<String> beers = Arrays.asList("Guinness","Budweiser","Carlsberg");
+        beers.stream()
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
 
+        System.out.println("Can do it with just a forEach: beers.forEach(System.out::println);");
+        beers.forEach(System.out::println);
+
+        System.out.println("Can make your own methods to use. Must be static.");
+        System.out.println("""
+                    private static String messUpName(String s)
+                    {
+                        return s.toLowerCase().replace('e','3') + " X Y ZZ";
+                    }
+                    beers.stream().map(Streams::messUpName).forEach(System.out::println);
+                
+                """);
+        beers.stream().map(Streams::messUpName).forEach(System.out::println);
+
+    }
+
+    private static String messUpName(String s)
+    {
+        return s.toLowerCase().replace('e','3') + " X Y ZZ";
     }
 
     private void optional() {

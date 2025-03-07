@@ -1,16 +1,13 @@
 package CoreJava;
 
 public class DataTypes {
-    public static void runDataTypes()
+    public DataTypes()
     {
         types();
         conversion();
         arrays();
         random();
         string();
-        arrayList();
-        maps();
-        sets();
     }
 
     public static void types() {
@@ -99,18 +96,6 @@ public class DataTypes {
         s.append(" but I'm not thread safe");
         System.out.println("\nStringBuilder s = new StringBuilder(\"I'm similar to StringBuffer\");\n" +
                 "        s.append(\" but I'm not thread safe\");\n" + s);
-
-    }
-
-    public static void arrayList(){
-
-    }
-
-    public static void maps(){
-
-    }
-
-    public static void sets(){
 
     }
 
