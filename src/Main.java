@@ -1,5 +1,6 @@
 import AdvancedJava.*;
 import CoreJava.*;
+import NewFeatures.Java9to21Features;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -17,6 +18,7 @@ public class Main {
         Threads t = new Threads();
         Collections collections = new Collections();
         Streams streams = new Streams();
+        Java9to21Features java9To21Features = new Java9to21Features();
     }
 
 

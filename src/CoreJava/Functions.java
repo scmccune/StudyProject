@@ -77,41 +77,75 @@ public class Functions {
 
     public static void conditional(){
         Util.printHeader("Conditional Statements");
-        System.out.println("if (condition == true){\n\t   result = true;\n\t} else if (secondCondition == true) {\n\t   result = true; \n\t } else { \n\t   result = false; }");
+        System.out.println("""
+                if (condition == true){
+                \t   result = true;
+                \t} else if (secondCondition == true) {
+                \t   result = true;\s
+                \t } else {\s
+                \t   result = false; }""");
         System.out.println("Tenery: return bool ? true : false;");
-        System.out.println("Old switch: switch(num) { \n\tcase 1:\n\t\tresult=\"one\";\r\n\t\tbreak;\n\tdefault:\n\t\tresult=\"notOne\";}");
-        System.out.println("Java 17 switch: String dayName = switch (day) {\n" +
-                "            case 1 -> \"Monday\";\n" +
-                "            case 2 -> \"Tuesday\";\n" +
-                "            default -> \"Invalid day\";};");
+        System.out.println("""
+                Old switch: switch(num) {\s
+                \tcase 1:
+                \t\tresult="one";\r
+                \t\tbreak;
+                \tdefault:
+                \t\tresult="notOne";}""");
+        System.out.println("""
+                Java 17 switch: String dayName = switch (day) {
+                            case 1 -> "Monday";
+                            case 2 -> "Tuesday";
+                            default -> "Invalid day";};""");
         System.out.println("Can also yield in default: default -> {\n" +
                 "                if (score < 60) {\n" +
                 "                    yield \"F\";\n" +
                 "                } else {\n" +
                 "                    yield \"Invalid score\";\n" +
                 "                }");
-        System.out.println("Java 21 Switch: String result = switch (obj) {\n" +
-                "            case String s -> \"It's a string: \" + s;\n" +
-                "            case Integer i -> \"It's an integer: \" + i;\n" +
-                "            default -> \"Unknown type\";\n" +
+        System.out.println("Java 21 Switch: switch (i) {\n" +
+                "            case Integer j when j>20 -> \"Integer > 20 : \" + j;\n" +
+                "            case Integer j when j<20 -> \"Integer < 20 : \" + j;\n" +
+                "            case Long j -> \"long! : \" + j;\n" +
+                "            case String j -> \"String to upper: \" + j.toUpperCase();\n" +
+                "            default -> \"Unexpected value: \" + i;\n" +
                 "        };\n");
 
+        System.out.println(switchSwitch (23));
+        System.out.println(switchSwitch (17));
+        System.out.println(switchSwitch (13L));
+        System.out.println(switchSwitch ("this is my string"));
+        System.out.println(switchSwitch (true));
+
+
+    }
+
+    private static String switchSwitch(Object i) {
+        return switch (i) {
+            case Integer j when j>20 -> "Integer > 20 : " + j;
+            case Integer j when j<20 -> "Integer < 20 : " + j;
+            case Long j -> "long! : " + j;
+            case String j -> "String to upper: " + j.toUpperCase();
+            default -> "Unexpected value: " + i;
+        };
     }
 
     public static void loops() {
         Util.printHeader("Loops");
         int i=1;
-        System.out.println("while (i<3) {\n" +
-                "   System.out.printf(\"i = %1$s\", i++);\n" +
-                "}");
+        System.out.println("""
+                while (i<3) {
+                  System.out.printf("i = %1$s", i++);
+                }""");
         while(i<3){
             System.out.printf("i = %1$s | ", i++);
         }
 
         i=1;
-        System.out.println("\ndo {    // Runs atleast once\n" +
-                "   System.out.printf(\"i = %1$s\", i++);\n" +
-                "} while (i<1);");
+        System.out.println("""                
+                do {    // Runs atleast once
+                   System.out.printf("i = %1$s", i++);
+                } while (i<1);""");
         do {
             System.out.printf("i = %1$s | ", i++);
         } while(i<1);
@@ -131,18 +165,20 @@ public class Functions {
 //         Using lambda expression
 //        stringArray.forEach(s -> System.out.println(s));
 //         Using method reference
-        System.out.println("\n// Using a traditional for loop\n" +
-                "        for (int w = 0; w < stringArray.size(); w++) {\n" +
-                "            System.out.println(stringArray.get(w));\n" +
-                "        }\n" +
-                "// Or\n" +
-                "        for (String s : stringArray) {\n" +
-                "            System.out.println(s);\n" +
-                "        }\n" +
-                "// Using lambda expression\n" +
-                "        stringArray.forEach(s -> System.out.println(s));\n" +
-                "// Using method reference\n" +
-                "        stringArray.forEach(System.out::printf);");
+        System.out.println("""
+                
+                // Using a traditional for loop
+                        for (int w = 0; w < stringArray.size(); w++) {
+                            System.out.println(stringArray.get(w));
+                        }
+                // Or
+                        for (String s : stringArray) {
+                            System.out.println(s);
+                        }
+                // Using lambda expression
+                        stringArray.forEach(s -> System.out.println(s));
+                // Using method reference
+                        stringArray.forEach(System.out::printf);""");
         stringArray.forEach(System.out::printf);
 
     }
