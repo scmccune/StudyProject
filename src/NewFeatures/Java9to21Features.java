@@ -2,7 +2,6 @@ package NewFeatures;
 
 import CoreJava.Functions;
 import CoreJava.Util;
-import CoreJava.object.BasicClass;
 
 import java.io.File;
 import java.io.FileWriter;

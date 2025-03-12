@@ -1,13 +1,11 @@
 package CoreJava;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class Util {
     public static void printHeader(String s) {
         System.out.println();
-        System.out.println("======" + StringUtils.repeat('=', s.length()));
+        System.out.println("======" +  "=".repeat(s.length()));
         System.out.println("=  " + s + "  =");
-        System.out.println("======" + StringUtils.repeat('=', s.length()));
+        System.out.println("======" +  "=".repeat(s.length()));
     }
 
     static String printMyFnArray(int[] array)

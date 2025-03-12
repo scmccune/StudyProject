@@ -117,12 +117,6 @@ public class Streams {
         }
         System.out.println("        System.out.println(optionalReturnBad.orElse(\"OrElse to fallback\"));\n");
         System.out.println(optionalReturnBad.orElse("OrElse to fallback"));
-
-
-
-
-
-
     }
 
     private void reduce() {
